@@ -3,18 +3,17 @@
 
 ## Introduction
 
-This is a web-based app which allows you to search for books according to key words, view the books' information and save them for future reference.
+This is a web-based app which allows you to search for books according to key words, view the books' information and save it for future reference.
 
 ## Technology:
 - Javascript
 - V:React 
 - C:Node.js / express
 - M:mongodb
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
 ## File structure and functions of each folder:
 
-```
+
 google-books-app
 - client
     - public 
@@ -63,7 +62,7 @@ google-books-app
       connects to mongodb
       start the internal API server,note its port needs to be the same used in client's package.json if locally.
 
-```
+
 
 ## Run the app locally: 
 
