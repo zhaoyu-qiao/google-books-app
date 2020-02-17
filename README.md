@@ -65,28 +65,41 @@ google-books-app
 
 ```
 
+## Run the app locally: 
 
-
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
-
-## Starting the app locally
-
-Start by installing front and backend dependencies. While in this directory, run the following command:
-
+- Create mongo db google-books 
 ```
-npm install
+mongo
+use google-books
 ```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
+- Clone the folder 
 ```
-npm start
+git clone folder url
 ```
+- Run ```npm i``` in both root directory and client directory
+- Run seedDB script ```npm run seed```
+- Run ```npm start```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Demo
+### Deployment url on heroku: https://mighty-crag-14503.herokuapp.com
+
+### Screenshots:
+
+#### Initial page
+
+![Initial Page](/client/public/images/launch.png)
+
+#### Search books using key words and view results
+
+[Initial Page](/client/public/images/search.png)
+
+#### Save a book you are interested in
+
+[Initial Page](/client/public/images/save.png)
+
+#### View saved books
+
+[Initial Page](/client/public/images/saved.png)
+
