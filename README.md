@@ -73,7 +73,7 @@ use google-books
 ```
 - Clone the folder 
 ```
-git clone folder url
+git clone <folder url>
 ```
 - Run ```npm i``` in both root directory and client directory
 - Run seedDB script ```npm run seed```
