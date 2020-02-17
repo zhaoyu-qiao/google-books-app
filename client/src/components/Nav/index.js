@@ -1,18 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// function Nav() {
-//   return (
-//     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-//       <a className="navbar-brand" href="/">
-//         Google Book Search
-//       </a>
-//     </nav>
-//   );
-// }
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id="nav" className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
         Home{" "}
       </Link>{" "}
@@ -23,7 +14,7 @@ function Nav() {
               to="/"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/about"
+                window.location.pathname === "/search"
                   ? "nav-link active"
                   : "nav-link"
               }

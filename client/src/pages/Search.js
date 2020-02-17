@@ -4,8 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 import { BookListItem } from "../components/BookListItem";
 
 // search page
@@ -49,10 +48,11 @@ class Search extends Component {
     console.log("STATE", this.state);
     return (
       <Container fluid>
+        <hr style={{ border: "solid transparent" }} />
         <Row>
           <Col size="md-3 sm-12">
             <Jumbotron>
-              <h1> Search your book here </h1>{" "}
+              <h1 id="search-img"> Search your book here </h1>{" "}
             </Jumbotron>{" "}
             <form>
               <Input
