@@ -1,4 +1,5 @@
 import axios from "axios";
+// save the key into dotenv.
 const API_KEY = "AIzaSyDt0fO2qvo9yN6YXJS666t-a9pL_GdYvZU";
 
 export default {
@@ -19,7 +20,9 @@ export default {
     return axios.post("/api/books", bookData);
   },
   // Search a book (for now just hardcoded) 
-  searchBook: function (query) {
-    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
+  searchBook: function (queryString) {
+    // split and then join so it allows user to type with space in between in the form.
+    let query = (queryString.split("")).join("+");
+    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`)
   }
 };

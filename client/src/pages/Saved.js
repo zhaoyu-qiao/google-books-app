@@ -1,53 +1,60 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+// import { Link } from "react-router-dom";
+import {  Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
 
-// instead of one book, save all books.
 class Saved extends Component {
   state = {
-    book: {}
+    books: [],
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
   componentDidMount() {
-    API.getBook(this.props.match.params.id)
+    this.loadBooks();
+  }
+
+  loadBooks = () => {
+    API.getBooks()
       .then(res =>
-        this.setState({
-          book: res.data
-        })
+        this.setState({ books: res.data })
       )
       .catch(err => console.log(err));
-  }
+  };
+
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
+      <div>
+      <Jumbotron>
+      <h1>Books On My List</h1>
+    </Jumbotron>
       <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>
-                {" "}
-                {this.state.book.title}
-                by {this.state.book.author}{" "}
-              </h1>{" "}
-            </Jumbotron>{" "}
-          </Col>{" "}
-        </Row>{" "}
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1> Synopsis </h1> <p> {this.state.book.synopsis} </p>{" "}
-            </article>{" "}
-          </Col>{" "}
-        </Row>{" "}
-        <Row>
-          <Col size="md-2">
-            <Link to="/"> ←Back to Authors </Link>{" "}
-          </Col>{" "}
-        </Row>{" "}
+            {this.state.books.length ? (
+              <List>
+                {this.state.books.map(book => (
+                  <ListItem
+                    key={book._id}
+                    title={book.title}
+                    author={book.author}
+                    href={book.href}
+                    thumbnail={book.thumbnail}
+                    description={book.description}
+                    deleteBook={() => this.deleteBook(book._id)}
+                  />
+
+                ))}
+              </List>
+            ) : (
+              <h1 id="message" className="text-center">No Results to Display</h1>
+            )}
       </Container>
+      </div>
     );
   }
 }

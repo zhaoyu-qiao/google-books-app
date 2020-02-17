@@ -21,17 +21,20 @@ export function BookListItem(props) {
             <button className="btn">
               {" "}
               <a
-                id="btn"
+                //id="btn"
                 rel="noreferrer noopener"
                 target="_blank"
                 href={props.href}
               >
                 View Book{" "}
-              </a>
-            </button>
-            <button className="btn" id="btn" onClick={props.handleSavedBook}>
-              {" "}
-              Save Book{" "}
+              </a>{" "}
+            </button>{" "}
+            <button
+              className="btn"
+              id={props.id}
+              onClick={props.handleSavedBook}
+            >
+              Save Book
             </button>{" "}
           </Col>{" "}
         </Row>{" "}

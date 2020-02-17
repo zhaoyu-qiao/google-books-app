@@ -28,7 +28,11 @@ class Search extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     API.searchBook(this.state.search)
-      .then(res => this.setState({ books: res.data.items }))
+      .then(res =>
+        this.setState({
+          books: res.data.items
+        })
+      )
       .catch(err => console.log(err));
   };
 
@@ -46,7 +50,7 @@ class Search extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-3 sm-12">
             <Jumbotron>
               <h1> Search your book here </h1>{" "}
             </Jumbotron>{" "}
@@ -65,16 +69,17 @@ class Search extends Component {
               </FormBtn>{" "}
             </form>{" "}
           </Col>{" "}
-          <Col size="md-6 sm-12">
+          <Col size="md-8 sm-12">
             <Jumbotron>
               <h1> Search Result </h1>{" "}
-            </Jumbotron>
+            </Jumbotron>{" "}
             {!this.state.books.length ? (
               <h1 id="message" className="text-center">
-                No Books To Display
+                Check out your books here{" "}
               </h1>
             ) : (
               <div>
+                {" "}
                 {this.state.books.map(books => {
                   return (
                     <BookListItem
@@ -90,18 +95,18 @@ class Search extends Component {
                           title: books.volumeInfo.title,
                           author: books.volumeInfo.authors,
                           id: books.id,
-                          href: books.volumeInfo.previewLink,
+                          href: books.volumeInfo.infoLink,
                           thumbnail: books.volumeInfo.imageLinks.thumbnail,
                           description: books.volumeInfo.description
                         })
                       }
                     />
                   );
-                })}
+                })}{" "}
               </div>
-            )}
-          </Col>
-        </Row>
+            )}{" "}
+          </Col>{" "}
+        </Row>{" "}
       </Container>
     );
   }
