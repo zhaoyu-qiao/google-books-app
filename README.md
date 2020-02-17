@@ -93,13 +93,13 @@ git clone folder url
 
 #### Search books using key words and view results
 
-[Initial Page](/client/public/images/search.png)
+![Search Page](/client/public/images/search.png)
 
 #### Save a book you are interested in
 
-[Initial Page](/client/public/images/save.png)
+![Save Page](/client/public/images/save.png)
 
 #### View saved books
 
-[Initial Page](/client/public/images/saved.png)
+![Saved Page](/client/public/images/saved.png)
 
