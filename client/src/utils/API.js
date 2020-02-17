@@ -1,6 +1,7 @@
 import axios from "axios";
+
 // save the key into dotenv.
-const API_KEY = "AIzaSyDt0fO2qvo9yN6YXJS666t-a9pL_GdYvZU";
+const API_KEY = "AIzaSyDt0fO2qvo9yN6YXJS666t-a9pL_GdYvZU"
 
 export default {
   // Gets all books
