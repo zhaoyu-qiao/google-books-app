@@ -7,9 +7,9 @@ This is a web-based app which allows you to search for books according to key wo
 
 ## Technology:
 - Javascript
-- V:React 
-- C:Node.js / express
-- M:mongodb
+- V: React 
+- C: Node.js / express
+- M: mongodb
 
 ## File structure and functions of each folder:
 
