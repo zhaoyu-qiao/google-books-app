@@ -69,17 +69,25 @@ export function BookListItem(props) {
               aria-labelledby="contained-modal-title-vcenter"
               centered
             >
-              <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
+              {/* <Modal.Header closeButton>
+                {/* <Modal.Title id="contained-modal-title-vcenter">
                   Save The Book
-                </Modal.Title>{" "}
-              </Modal.Header>{" "}
+                </Modal.Title>{" "} 
+              </Modal></Modal.Header>{" "} */}
               <Modal.Body>
-                <h4> Centered Modal </h4> <p> Your Book is Saved!</p>
+                <span style={{ float: "left" }}>
+                  {" "}
+                  {props.title} is saved to your booklist!
+                </span>
+
+                <Button style={{ float: "right" }} onClick={handleClose}>
+                  {" "}
+                  Close{" "}
+                </Button>
               </Modal.Body>{" "}
-              <Modal.Footer>
-                <Button onClick={handleClose}> Close </Button>
-              </Modal.Footer>
+              {/* <Modal.Footer>
+                
+              </Modal.Footer> */}
             </Modal>
           </Col>{" "}
         </Row>{" "}
