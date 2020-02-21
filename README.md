@@ -82,7 +82,7 @@ git clone <folder url>
 
 
 ## Demo
-### Deployment url on heroku: https://google-books-search-jo.herokuapp.com/saved
+### Deployment url on heroku: https://google-books-search-jo.herokuapp.com/
 
 ### Screenshots:
 
