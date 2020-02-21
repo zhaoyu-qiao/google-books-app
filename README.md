@@ -1,29 +1,104 @@
-# Create React Express App
+# React App google-books-app
 
-## About This Boilerplate
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Introduction
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+This is a web-based app which allows you to search for books according to key words, view the books' information and save it for future reference.
 
-## Starting the app locally
+## Technology:
+- Javascript
+- V: React 
+- C: Node.js / express
+- M: mongodb
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
-
-```
-npm install
-```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
+## File structure and functions of each folder:
 
 ```
-npm start
+google-books-app
+- client
+    - public 
+        - index.html
+        - images
+    - src
+        - App.js
+        - index.js
+        - components
+            - BookListItem
+            - DeleteBtn
+            - Form which includes Input and Formbtn
+            - Grid which includes Container Row and Col
+            - Jumbotron
+            - List
+            - Nav
+            - Thumbnail
+        - pages
+            - Search.js
+            - Saved.js
+            - Nomatch.js
+        - utils
+            - API.js which includes axios methods to interact with internal and external APIs
+    - package.json   
+        "proxy": "http://localhost:3001/",
+        "dependencies": {
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3",
+        "react-scripts": "^2.1.1",
+        "react-router-dom": "^4.3.1",
+        "axios": "^0.18.0"
+- controllers
+    - booksController.js which requires models folder and includes methods to interact with mongodb
+- models
+    - books.js which uses mongoose schema to create new collections on mongodb
+    - index.js which requires books.js and export it
+- routes
+    - api             "/api"
+        - books.js    "/api/books"  
+        - index.js    "/api/"
+- scripts
+    - seedDB.js which requires mongoose and models to connect to mongodb, provides seed file, and creates collection
+- server.js
+      const PORT = process.env.PORT || 3001;
+      includes routes
+      connects to mongodb
+      start the internal API server,note its port needs to be the same used in client's package.json if locally.
 ```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
+## Run the app locally: 
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+- Create mongo db google-books 
+```
+mongo
+use google-books
+```
+- Clone the folder 
+```
+git clone <folder url>
+```
+- Run ```npm i``` in both root directory and client directory
+- Run seedDB script ```npm run seed```
+- Run ```npm start```
+
+
+
+## Demo
+### Deployment url on heroku: https://mighty-crag-14503.herokuapp.com
+
+### Screenshots:
+
+#### Initial page
+
+![Initial Page](/client/public/images/launch.png)
+
+#### Search books using key words and view results
+
+![Search Page](/client/public/images/search.png)
+
+#### Save a book you are interested in
+
+![Save Page](/client/public/images/save.png)
+
+#### View saved books
+
+![Saved Page](/client/public/images/saved.png)
+
